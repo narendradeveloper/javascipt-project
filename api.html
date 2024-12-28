@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<p id="tr"></p>
+    
+    <table id="crypto-table">
+        <thead>
+            <tr>
+                <th >Id</th>
+                <th>Symbol</th>
+            </tr>
+        </thead>
+        <tbody id="crypto-body">
+            
+        </tbody>
+    </table>
+    <script>
+       async function api(){
+        let tbody=document.getElementById("tr")
+    let url=await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,ripple,litecoin,cardano,polkadot,dogecoin,solana,shiba-inu,binancecoin,avalanche,tron,chainlink,uniswap,stellar,monero,vechain,tezos,theta,cosmos,filecoin,algorand,aave,elrond,zcash,compound,ethereum-classic,theta-fuel,enjincoin,hedera-hashgraph,thorchain,quant,radix,ecomi,flow,yearn-finance,fantom,harmony,celsius,near,ravencoin,kucoin-shares,decentraland,sandbox,axie-infinity,gala,stepn,holo,arweave,terra-luna-v2,unus-sed-leo,bittorrent,moonriver&price_change_percentage=1h,24h,7d");
+    let date=await url.json()
+    console.log(date)
+    date.map((a)=>{
+        // let p=document.createElement("tr")
+        let td=document.createElement("tr") 
+        td.appendChild(tbody)
+       td.innerHTML=a.id
+
+        // let tr1=document.createElement('td') 
+        // tr1.appendChild(tr1)
+        // tr1.textContent=a.atl 
+        // let td2=document.createElement('tr')
+        // document.body.appendChild(td2)
+        // td2.innerText=a.image
+    //  console.log(a.symbol)
+    // tbody.appendChild(row)
+
+    })
+
+}
+api()
+// console.log((api))
+
+    </script>
+</body>
+</html>

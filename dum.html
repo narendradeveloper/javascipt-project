@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Search</title>
+</head>
+<body>
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Search Cryptocurrency" 
+    oninput="search()"
+  >
+  <table border="1">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>24h Change</th>
+        <th>Low 24h</th>
+        <th>Market Cap</th>
+        <th>7d Change</th>
+      </tr>
+    </thead>
+    <tbody id="crypto-body"></tbody>
+  </table>
+
+  <script>
+    let cryptos = [];
+
+    async function api() {
+      const tbody = document.getElementById("crypto-body");
+
+      const url = await fetch(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,ripple,litecoin,cardano,polkadot,dogecoin,solana,shiba-inu,binancecoin,avalanche,tron,chainlink,uniswap,stellar,monero,vechain,tezos,theta,cosmos,filecoin,algorand,aave,elrond,zcash,compound,ethereum-classic,theta-fuel,enjincoin,hedera-hashgraph,thorchain,quant,radix,ecomi,flow,yearn-finance,fantom,harmony,celsius,near,ravencoin,kucoin-shares,decentraland,sandbox,axie-infinity,gala,stepn,holo,arweave,terra-luna-v2,unus-sed-leo,bittorrent,moonriver&price_change_percentage=1h,24h,7d"
+      );
+      const data = await url.json();
+      cryptos = data;
+
+      renderRows(data);
+    }
+
+    function renderRows(data) {
+      const tbody = document.getElementById("crypto-body");
+      tbody.innerHTML = ""; // Clear existing rows
+
+      data.map((a, b) => {
+        const row = document.createElement("tr");
+
+        const no = document.createElement("td");
+        no.textContent = b + 1;
+        row.appendChild(no);
+
+        const callname = document.createElement("td");
+        callname.textContent = a.name + " ";
+        const image = document.createElement("img");
+        image.src = a.image;
+        image.alt = a.name;
+        image.style.width = "20px";
+        image.style.marginLeft = "10px";
+        callname.appendChild(image);
+        row.appendChild(callname);
+
+        const callprice = document.createElement("td");
+        callprice.textContent = a.price_change_percentage_24h_in_currency.toFixed(2) + "%";
+        row.appendChild(callprice);
+
+        const str = document.createElement("td");
+        str.textContent = `$${a.low_24h.toFixed(2)}`;
+        str.style.color = a.low_24h < 10 ? "red" : "green";
+        row.appendChild(str);
+
+        const str1 = document.createElement("td");
+        str1.textContent = `$${a.market_cap}`;
+        row.appendChild(str1);
+
+        const str2 = document.createElement("td");
+        str2.textContent = a.price_change_percentage_7d_in_currency.toFixed(2) + "%";
+        row.appendChild(str2);
+
+        tbody.appendChild(row);
+      });
+    }
+
+    function search() {
+      const searchInput = document.getElementById("searchInput").value.toLowerCase();
+
+      // If the search input is empty, display all items
+      if (searchInput.trim() === "") {
+        renderRows(cryptos);
+        return;
+      }
+
+      // Filter the data and display matching items
+      const filteredData = cryptos.filter((crypto) =>
+        crypto.name.toLowerCase().includes(searchInput)
+      );
+      renderRows(filteredData);
+    }
+
+    api();
+  </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+
+#para{
+    color: white;
+    margin-left: 5vh;
+}
+
+.navbar{
+  color: rgb(4, 44, 44);
+  display: flex;
+  justify-content:end;
+  margin-right: 10vh;
+  gap: 10vh;
+  list-style: none;
+  cursor: pointer;
+  font-size: larger;
+  padding: 0;
+}
+
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    gap: 2vh; 
+    font-size: small; 
+  }
+}
+  .navbar li a {
+    text-decoration: none;
+    color: aqua;
+  }
+  .navbar li {
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+  }
+
+.home:hover{
+  color: rgb(235, 50, 111);
+}
+.about:hover:hover{
+  color: rgb(235, 50, 111);
+}
+.products:hover{
+  color: rgb(235, 50, 111);
+}
+.login{
+  color: aqua;
+  text-decoration: none;
+}
+.login:hover{
+  color: rgb(235, 50, 111);
+
+}
+.crt{
+  color: aqua;
+  font-size:5vh;
+  padding: 5vh;
+}
+
+body {
+   font-family: Arial, sans-serif;
+   margin: 20px;
+   background-color: rgb(8, 23, 51);
+   margin: 0;
+   padding: 0;
+ }
+ .box {
+   margin-bottom: 20px;
+   text-align: center;
+ }
+ input[type="text"] {
+   padding: 10px;
+   width: 300px;
+   margin-right: 10px;
+ }
+ input[type="submit"] {
+   height: 6vh;
+   cursor: pointer;
+ }
+ table {
+   width: 100%;
+   border-collapse: collapse;
+   margin-bottom: 30px;
+   /* border-style: none; */
+   /* column-rule-style: none; */
+   /* border-collapse: collapse; */
+   /* padding: 0; */
+   /* margin: 0; */
+  
+   
+ }
+ td:hover{
+  background-color: #1e0e42;
+ }
+ th, td {
+   border: 1px solid #1e0e42;
+   text-align: center;
+   padding: 10px;
+  
+   
+ }
+ th {
+   font-weight: bold;
+   margin: 0;
+   padding: 0;
+ }
+ img{
+  height: 7vh;
+  display: flex;
+  grid-row: auto;
+  border-radius: 50%;
+  width: 10vh;
+  border: 2px solid rgb(118, 138, 137);
+ 
+ }
+ #callname{
+color: white;
+gap: 3vh;
+display:flex;
+align-items: center;
+cursor: pointer;
+
+ } 
+ #callname:hover{
+  background-color: #1e0e42;
+ }
+ #no{
+  color: white;
+ }
+ #str2{
+  color: white;
+ }
+ #callprice{
+  color: white;
+ }
+ #str{
+  color: white;
+ }
+ #str1{
+  color: white;
+ }
+ #details{
+  color: white;
+  
+ }
+#hover{
+  color: rgb(233, 231, 231);
+   text-align: center; 
+   cursor: pointer;
+}
+#hover:hover{
+  color: aqua;
+}
+#work{
+  /* margin-top: 15vh; */
+  padding: 0;
+  text-align: center;
+  color: white;
+  
+  
+}
+#work:hover{
+  color: aqua;
+}
+#ps{
+  display: flex;
+  margin-left: 15vh;
+ color: rgb(211, 214, 214);
+}
+#sub{
+  color: blue;
+  font-size: larger;
+  background-color: aqua;
+  /* height: 40px; */
+  /* border-top: 95px; */
+}
+#searchInput{
+  background-color: aqua;
+}
+
+.products{
+  color:aqua;
+}
+.about{
+  color:aqua;
+}
+.home{
+  color:aqua
+}
+
+#medile{
+   width: 50vh; 
+   height: 50vh;
+   margin-top: 5vh;
+}
